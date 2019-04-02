@@ -1,0 +1,20 @@
+# Bash
+
+As of 2019-04-02, I often use the bash shell in Microsoft Windows
+Subsystem for Linux ("WSL").  In fact, I rarely boot into the Linux
+partition nowadays.
+
+
+## Readline
+
+
+## Command History
+
+- Use `ctrl-p` to scroll through **p**revious commands.
+- Once back in command history, `ctrl-n` scrolls forward to **n**ext commands.
+- Search for a string in command history with `ctrl-r` ('reverse-i-search').
+    - Keep pressing `ctrl-r` to find earlier matches.
+    - Some systems use `ctrl-s` to find later matches; but usually it conflicts with XOn/XOff flow control; disable with `stty -ixon`.  (Edit .bashrc so you don't have to do that each time.)  Ref:  https://stackoverflow.com/questions/791765/unable-to-forward-search-bash-history-similarly-as-with-ctrl-r/791800#791800
+    - Some systems, `ctrl-R` (control-shift-r) will scroll forward to later matches.
+
+
