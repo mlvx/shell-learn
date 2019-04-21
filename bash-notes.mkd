@@ -7,6 +7,7 @@ partition nowadays.
 
 ## Readline
 
+Alt-BACKSPACE deletes by word.
 
 ## Command History
 
@@ -16,5 +17,15 @@ partition nowadays.
     - Keep pressing `ctrl-r` to find earlier matches.
     - Some systems use `ctrl-s` to find later matches; but usually it conflicts with XOn/XOff flow control; disable with `stty -ixon`.  (Edit .bashrc so you don't have to do that each time.)  Ref:  https://stackoverflow.com/questions/791765/unable-to-forward-search-bash-history-similarly-as-with-ctrl-r/791800#791800
     - Some systems, `ctrl-R` (control-shift-r) will scroll forward to later matches.
+- To recall the last argument for the previous command, use `$_`, `!$`, or `alt-.` (that's "alt-dot").  Alt-. will recall the last arg of any of the previous commands.
+- Use `!!:n` where "n" is the ordinalth argument.  So, `!!:3` would fetch the third arg of the previous command.  `!!:0` would fetch the command itself.
+    - Looks like those also work with just one bangmark.
+    - I can see this being useful for ImageMagick, maybe.
+
+## Grepping Whitespace
+
+Trying to grep, e.g., `grep '\tfoo' somefile.txt` to get a TAB char followed by 'foo' will fail.  Some interfaces reserve TAB, and '\t' is not a POSIX representation for TAB (for some reason).  You can do `grep "ctrl-vTABfoo" somefile.txt`.  Ctrl-v tells bash, "take the next keypress Verbatim".  Good to know.
+
+There also are wacky things you can do like use Perl mode (`grep -P '\tfoo' somefile.txt`) or use ASCII hex-code for tab.
 
 

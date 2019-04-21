@@ -1,0 +1,51 @@
+Regular expression
+Regexp
+Regex
+ASCII puke
+ReGeX
+reGular ExpressioN
+Oh yeah, Boi!
+----
+--------
+Every regex starts with a  /  and ends with a  /
+What's between the slashes is the pattern we are trying to match
+After the slashes, there are the so-called 'flags' -- combination
+	of  g, i, m
+Regexes match anywhere in a line, unless restricted
+Regexes are case-sensitive, unless flagged with  -i
+The dot -- '.' -- matches nearly any char except linebreaks, 
+	unless escaped with a backslash
+The 12 metacharacters have a special meaning in regexes:
+	[]	{}	(	)
+	\	^	$	|
+	?	.	*	+
+
+QUANTIFIERS
+	/a{4}/ matches the first four 'a' in 'caaaaaaaat'
+	Using a comma means "at least":  /a{4,}/
+	Or it means "between these qtys":  /a{4,12}/
+	Be aware that you can match the empty string:  /a{0,}/
+Asterisk means "floor 0 (will match empty string), no ceiling"; * = {0,}
+Plus sign means "floor 1 (will not match empty), no ceiling"; + = {1,}
+Question mark means "preceding char might be present"; ? = {0,1}
+	(If no matches,  ?  will match the empty string)
+	/regexp?/ will match 'regex' and/or 'regexp'
+Using a  ?  after a quantifier will reverse greediness:
+	/<.+?>/ will match '<p>' rather than '<p>Wazzup homie</p>'
+
+SqBrackets  []  denotes a set, range, or combination thereof
+Most metacharacters do not need to be escaped within  []
+	These do:  ^ ]   (what about  $  ?)
+
+CHARACTER CLASSES
+\w  matches alphanumeric and underscore; not unicode-aware
+\W  matches whitespace (the space char, at least)
+\d  matches digits  [0-9] ; does not match decimal point
+\s  matches whitespace:  tabs, linebreaks, newlines, spaces
+	\s ≈ [\t\r\n ]  and more; is unicode-aware, "supports 
+	all the weird whitespace characters that unicode has"
+
+
+https://www.youtube.com/watch?v=EkluES9Rvak
+http://leaverou.github.io/regexplained/
+
